@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'https://express-roan.vercel.app/'
+  apiURL: 'https://express-krtqajhtd-d3ividdiniz.vercel.app'
 };

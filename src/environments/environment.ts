@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://express-roan.vercel.app/'
+  apiURL: 'https://express-krtqajhtd-d3ividdiniz.vercel.app/'
 
 
 };
