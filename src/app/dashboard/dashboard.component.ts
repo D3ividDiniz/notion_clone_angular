@@ -10,6 +10,8 @@ import { NotesService } from '../services/notes.service';
 })
 export class DashboardComponent implements OnInit {
 
+  opennedMenu = false;
+
   cadernos: responseNotebookInterface[];
 
   constructor(private notesService: NotesService) { }
@@ -24,6 +26,17 @@ export class DashboardComponent implements OnInit {
   }
   deleteNote(id:string){
     this.notesService.deleteOneNote(id)
+  }
+  showMenu(){
+    if(!this.opennedMenu){
+      document.getElementById("inputNav").style.left = "0%";
+      this.opennedMenu = true;
+    }else{
+      document.getElementById("inputNav").style.left = "";
+      this.opennedMenu = false;
+    }
+
+
   }
 
 

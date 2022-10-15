@@ -1,5 +1,5 @@
 <main>
-  <div class="inputTodo" type="text">
+  <div class="inputTodo" id="inputNav"  type="text">
     <h1>Your Notes</h1>
     <ul>
       <a *ngFor="let caderno of cadernos" [href]="caderno._id"> <li>{{caderno.title}}</li><button class="excluir__btn" (click)="deleteNote(caderno._id)">excluir</button></a>
@@ -8,5 +8,6 @@
       <a href="/"><li id="new">Novo Caderno</li></a>
     </ul>
   </div>
-  <app-notes style="width: 70%;"></app-notes>
+  <app-notes></app-notes>
+  <button (click)="showMenu()" class="btn_menu">></button>
 </main>
