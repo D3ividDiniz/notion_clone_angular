@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+font-family: 'Annie Use Your Telescope', cursive;
+font-family: 'Cutive Mono', monospace;
+font-family: 'Share Tech Mono', monospace;
+font-family: 'Sofia', cursive;
+*/
+
+*{
+  margin: 0;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  font-family: 'Cutive Mono', monospace;
+
+}
+body{
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+

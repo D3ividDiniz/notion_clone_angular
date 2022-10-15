@@ -1,0 +1,80 @@
+main{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.inputTodo{
+  min-width: 30%;
+  max-width: 30%;
+  min-height: 50%;
+  max-height: 50%;
+  padding: 1.6rem;
+  background-color: rgb(250, 176, 40);
+  overflow-y: scroll;
+}
+.inputTodo:focus{
+  outline: none;
+}
+.inputTodo > h1{
+  font-size: 24px;
+}
+
+ul{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  list-style: none;
+}
+ul li:before {
+  content: ">";
+  display: inline;
+  float: left;
+  margin-left: -15px;
+  font-weight:700;
+  color:#0b0b0b;
+  font-size:inherit;
+
+  }
+a > li{
+  font-size: 16px;
+
+  padding: 8px 0;
+}
+a > li:hover{
+  background-color:  rgb(239, 169, 39);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+a{
+  color: #1e1e1e;
+  list-style: none;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px #1e1e1e solid;
+}
+.excluir__btn{
+  background-color: transparent;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  opacity: 15%;
+}
+.excluir__btn:hover{
+  opacity: 100%;
+
+}
+#new{
+  font-style: italic;
+}
+#new::before{
+  content: "+";
+}
+.opened__route{
+  background-color:  rgb(0, 0, 0);
+}
