@@ -43,6 +43,9 @@ export class NotesComponent implements OnInit {
   getBookData(id:(number | string)){
     const lineBook = document.getElementById('line');
     this.notesService.getOneNotes(id).subscribe((dataBook:responseNotebookInterface)=>{
+      if(dataBook == null){
+        this.router.navigate(['']);
+      }
       this.notebook = dataBook;
       lineBook.innerHTML += dataBook.title;
       const bookContent:string[] = JSON.parse(this.notebook.content);
@@ -52,6 +55,8 @@ export class NotesComponent implements OnInit {
       })
       const lines:NodeList = document.getElementById('line')?.childNodes;
       this.notesService.transformDataBook(lines, this.idParam);
+    }, (err)=>{
+      this.router.navigate(['']);
     });
 
 
@@ -74,9 +79,6 @@ export class NotesComponent implements OnInit {
           alert("Tivemos um erro")
         }
       });
-
-
-
   }
 }
 }

@@ -2,6 +2,7 @@ import { KeyValue } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { responseNotebookInterface } from '../models/notebook';
 import { NotesService } from '../services/notes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   cadernos: responseNotebookInterface[];
 
-  constructor(private notesService: NotesService) { }
+  constructor(private notesService: NotesService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllNotes()
@@ -26,7 +27,11 @@ export class DashboardComponent implements OnInit {
     })
   }
   deleteNote(id:string){
+    if(!window.confirm("Deseja mesmo remover esse caderno? :/")){
+      return
+    }
     this.notesService.deleteOneNote(id)
+    this.router.navigate(['']);
   }
   showMenu(){
     this.opennedMenu = !this.opennedMenu;

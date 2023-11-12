@@ -11,7 +11,7 @@ import { resPostInterface } from '../models/res.post';
 })
 export class NotesService extends MainService {
 
-  constructor(private http:HttpClient ) {
+  constructor(private http:HttpClient) {
     super();
   }
 
@@ -69,8 +69,11 @@ export class NotesService extends MainService {
     this.http.patch<void>(this.getApi("notes",String(this.id)), {title:this.title, content:this.content}).subscribe(res=>{});
   }
   }
-  deleteOneNote(id:(string | number)):void{
-    this.http.delete<void>(this.getApi("notes", String(id))).subscribe(res=>{
+  deleteOneNote(id:(string | number)):any{
+    this.http.delete<void>(this.getApi("notes", String(id))).subscribe(()=>{
+      return true;
+    }, ()=>{
+      return false
     })
   }
 

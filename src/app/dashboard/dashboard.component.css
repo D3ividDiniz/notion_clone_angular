@@ -73,6 +73,21 @@ a{
 }
 #new{
   font-style: italic;
+  position: absolute;
+  top:calc(100% - 48px - 16px); 
+  width: 180px;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.297);
+  color: #fab028;
+  font-size: 16px;
+  border-radius: 50px;
+  left: calc(100% - 196px );
+  border: none;
+  cursor: pointer;
+
+}
+#new:hover{
+  background-color: #000;
 }
 #new::before{
   content: "+";
@@ -113,16 +128,13 @@ app-notes{
 
 @media (max-width: 600px)
 {
-  .btn_menu{
-    display: block;
-  }
   app-notes{
     width: 100%;
   }
   .inputTodo{
     min-width: 100%;
     max-width: 100%;
-
+    z-index: 2;
     left: -100%;
     position: fixed;
     padding: 1.6rem;

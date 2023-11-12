@@ -7,9 +7,9 @@
       <a *ngFor="let caderno of cadernos" [href]="caderno._id" routerLinkActive="link__activa"> <li>📒 {{caderno.title}}</li><button class="excluir__btn" (click)="deleteNote(caderno._id)">excluir</button></a>
 
 
-      <a href="/"><li id="new">Novo Caderno</li></a>
+      
     </ul>
-
+    <a href="/"><button id="new">Novo Caderno</button></a>
   </div>
   <div id="notebook">
   <app-notes></app-notes>
