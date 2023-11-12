@@ -10,7 +10,7 @@ import { NotesService } from '../services/notes.service';
 })
 export class DashboardComponent implements OnInit {
 
-  opennedMenu = false;
+  opennedMenu = true;
 
   cadernos: responseNotebookInterface[];
 
@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getAllNotes()
   }
+  
   getAllNotes(){
     this.notesService.getAllNotes().subscribe((dataBooks:responseNotebookInterface[])=>{
       this.cadernos = dataBooks
@@ -28,16 +29,14 @@ export class DashboardComponent implements OnInit {
     this.notesService.deleteOneNote(id)
   }
   showMenu(){
+    this.opennedMenu = !this.opennedMenu;
     if(!this.opennedMenu){
       document.getElementById("inputNav").style.left = "0%";
-      this.opennedMenu = true;
-    }else{
-      document.getElementById("inputNav").style.left = "";
-      this.opennedMenu = false;
+      document.getElementById("notebook").style.cssText = "width: 75%; position:fixed; left: 25%"
+      return
     }
-
-
+    document.getElementById("inputNav").style.left = "";
+    document.getElementById("inputNav").style.position = "absolute";
+    document.getElementById("notebook").style.cssText = ""
   }
-
-
 }

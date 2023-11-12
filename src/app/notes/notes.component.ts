@@ -15,7 +15,8 @@ import { NotesService } from '../services/notes.service';
 export class NotesComponent implements OnInit {
   notebook: responseNotebookInterface;
   idParam: string;
-  timer$ = timer(4000,1000);
+  timer$ = timer(1000,15000);
+
 
   constructor(private notesService: NotesService, private router: Router) {
     this.idParam = window.location.pathname.substring(1)
@@ -45,8 +46,9 @@ export class NotesComponent implements OnInit {
       this.notebook = dataBook;
       lineBook.innerHTML += dataBook.title;
       const bookContent:string[] = JSON.parse(this.notebook.content);
+      
       bookContent.forEach(line=>{
-        lineBook.innerHTML += line;
+        lineBook.innerHTML += line != "<div></div>" ? line : '<div><br><div>';
       })
       const lines:NodeList = document.getElementById('line')?.childNodes;
       this.notesService.transformDataBook(lines, this.idParam);
@@ -54,8 +56,14 @@ export class NotesComponent implements OnInit {
 
 
   };
+  salvar(){
+    const lines:NodeList = document.getElementById('line')?.childNodes;
+    this.notesService.transformDataBook(lines,this.idParam)
+    this.notesService.updateNote()
+  }
   onKeyPress(x:KeyboardEvent){
     const lines:NodeList = document.getElementById('line')?.childNodes;
+    // console.log(this.notebook)
     this.notesService.transformDataBook(lines, this.idParam);
 
     if(x.key == "Enter" && !this.idParam){

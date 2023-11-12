@@ -11,8 +11,10 @@ font-family: 'Sofia', cursive;
   margin: 0;
   font-size: 62.5%;
   box-sizing: border-box;
-  font-family: 'Cutive Mono', monospace;
-  
+  /* font-family: 'Space Grotesk', sans-serif; */
+  /* font-family: 'Major Mono Display', monospace; */
+  /* font-family: 'Spline Sans Mono', monospace; */
+  font-family: 'DM Mono', monospace;
 
 }
 body{

@@ -1,13 +1,17 @@
 <main>
+  <button (click)="showMenu()" class="btn_menu">></button>
+  <!-- <button (click)="salvar()" class="btn_save" id="save">save</button> -->
   <div class="inputTodo" id="inputNav"  type="text">
-    <h1>Your Notes</h1>
+    <h1>Workspace</h1>
     <ul>
-      <a *ngFor="let caderno of cadernos" [href]="caderno._id"> <li>{{caderno.title}}</li><button class="excluir__btn" (click)="deleteNote(caderno._id)">excluir</button></a>
+      <a *ngFor="let caderno of cadernos" [href]="caderno._id" routerLinkActive="link__activa"> <li>📒 {{caderno.title}}</li><button class="excluir__btn" (click)="deleteNote(caderno._id)">excluir</button></a>
 
 
       <a href="/"><li id="new">Novo Caderno</li></a>
     </ul>
+
   </div>
+  <div id="notebook">
   <app-notes></app-notes>
-  <button (click)="showMenu()" class="btn_menu">></button>
+</div>
 </main>
